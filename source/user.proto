@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+option go_package = "./go-pb";
+
+message CreateRequest {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message CreateResponse {
+  enum Result {
+    CREATED = 0;
+    INVALID_EMAIL = 1;
+    INVALID_PASSWORD_REQUIREMENTS = 2;
+    EMAIL_ALREADY_EXISTS = 3;
+  }
+
+  Result result = 1;
+
+  string uuid = 2;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  enum Result {
+    AUTHENTICATED = 0;
+    WRONG_CREDENTIAL = 1;
+  }
+
+  Result result = 1;
+
+  string token = 2;
+}
+
+message VerifyRequest {
+  string token = 1;
+}
+
+message VerifyResponse {
+  enum Result {
+    VERIFIED = 0;
+    INVALID_CREDENTIAL = 1;
+  }
+
+  Result result = 1;
+}
+
+message RefreshRequest {
+  string token = 1;
+}
+
+message RefreshResponse {
+  enum Result {
+    REFRESHED = 0;
+    INVALID_CREDENTIAL = 1;
+  }
+
+  Result result = 1;
+
+  string token = 2;
+}
+
+message MeRequest {
+  string token = 1;
+}
+
+message MeResponse {
+  enum Result {
+    FOUND = 0;
+    NOT_FOUND = 1;
+    INVALID_CREDENTIAL = 2;
+  }
+
+  Result result = 1;
+
+  string uuid = 2;
+  string name = 3;
+  string email = 4;
+  MeStatus status = 5;
+}
+
+enum MeStatus {
+  UNKNOWN = 0;
+  INVALID = 1;
+  FREE = 2;
+  PAID = 3;
+}
+
+message UpdateMeRequest {
+  string token = 1;
+
+  string name = 2;
+  string email = 3;
+  MeStatus status = 4;
+  string password = 5;
+  string new_password = 6;
+}
+
+message UpdateMeResponse {
+  enum Result {
+    UPDATED = 0;
+    NOT_FOUND = 1;
+    INVALID_CREDENTIAL = 2;
+    EMAIL_ALREADY_EXISTS = 3;
+    PASSWORD_DOES_NOT_MATCH = 4;
+    INVALID_PASSWORD_REQUIREMENTS = 5;
+    INVALID_EMAIL = 6;
+  }
+
+  Result result = 1;
+}
+
+message DeleteMeRequest {
+  string token = 1;
+}
+
+message DeleteMeResponse {
+  enum Result {
+    DELETED = 0;
+    NOT_FOUND = 1;
+    INVALID_CREDENTIAL = 2;
+  }
+
+  Result result = 1;
+}
+
+service UserService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc Verify(VerifyRequest) returns (VerifyResponse);
+  rpc Refresh(RefreshRequest) returns (RefreshResponse);
+  rpc Me(MeRequest) returns (MeResponse);
+  rpc UpdateMe(UpdateMeRequest) returns (UpdateMeResponse);
+  rpc DeleteMe(DeleteMeRequest) returns (DeleteMeResponse);
+}
