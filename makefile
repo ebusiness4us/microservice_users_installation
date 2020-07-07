@@ -1,11 +1,17 @@
+build: clean go-build php-build
+
+clean:
+	rm -rf ./build
+
 go-build:
-	protoc -I=./source --go_out=plugins=grpc:./build ./source/*.proto
+	mkdir -p ./build/go/pb
+	protoc -I=./source --go_out=plugins=grpc:./build/go ./source/*.proto
 
 php-build:
-	mkdir -p ./build/php-pb && \
+	mkdir -p ./build/php/pb && \
 	protoc --proto_path=./source \
-		--php_out=./build/php-pb \
-		--grpc_out=./build/php-pb \
+		--php_out=./build/php/pb \
+		--grpc_out=./build/php/pb \
 		--plugin=protoc-gen-grpc=./vendor/grpc/bins/opt/grpc_php_plugin \
 		./source/*.proto
 
