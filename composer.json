@@ -16,8 +16,8 @@
         "grpc/grpc": "^v1.27.0"
     },
     "autoload": {
-        "psr-0": {
-            "MicroserviceUsers\\": "build/php/"
+        "psr-4": {
+            "": "build/php"
         }
     }
 }
