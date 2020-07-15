@@ -1,0 +1,18 @@
+{
+    "name": "Microservice Users",
+    "description": "",
+    "authors": [
+        {
+            "name": "Anderson Marin",
+            "email": "anderson.marin@outlook.com"
+        }
+    ],
+    "require": {
+        "grpc/grpc": "^v1.27.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "gen"
+        }
+    }
+}

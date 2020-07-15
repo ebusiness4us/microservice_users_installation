@@ -1,6 +1,10 @@
 syntax = "proto3";
 
+package microserviceUsers;
+
 option go_package = "./pb";
+
+option php_generic_services = true;
 
 message CreateRequest {
   string name = 1;
