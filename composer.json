@@ -1,6 +1,11 @@
 {
-    "name": "Microservice Users",
+    "name": "microservice/users",
+    "type": "library",
     "description": "",
+    "keywords": [
+        "microservice",
+        "users"
+    ],
     "authors": [
         {
             "name": "Anderson Marin",
@@ -11,8 +16,8 @@
         "grpc/grpc": "^v1.27.0"
     },
     "autoload": {
-        "psr-4": {
-            "": "gen"
+        "psr-0": {
+            "Microservice\\Users\\": "build/php/"
         }
     }
 }
