@@ -65,5 +65,13 @@ interface UserServiceInterface
      */
     public function deleteMe(\MicroserviceUsers\DeleteMeRequest $request);
 
+    /**
+     * Method <code>superLogin</code>
+     *
+     * @param \MicroserviceUsers\SuperLoginRequest $request
+     * @return \MicroserviceUsers\SuperLoginResponse
+     */
+    public function superLogin(\MicroserviceUsers\SuperLoginRequest $request);
+
 }
 

@@ -114,4 +114,18 @@ class UserServiceClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \MicroserviceUsers\SuperLoginRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \MicroserviceUsers\SuperLoginResponse
+     */
+    public function SuperLogin(\MicroserviceUsers\SuperLoginRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/microserviceUsers.UserService/SuperLogin',
+        $argument,
+        ['\MicroserviceUsers\SuperLoginResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

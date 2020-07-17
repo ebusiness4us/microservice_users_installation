@@ -133,6 +133,23 @@ message DeleteMeResponse {
   Result result = 1;
 }
 
+message SuperLoginRequest {
+  string uuid = 1;
+  string signature = 2;
+}
+
+message SuperLoginResponse {
+  enum Result {
+    AUTHENTICATED = 0;
+    NOT_FOUND = 1;
+    WRONG_SIGNATURE = 2;
+  }
+
+  Result result = 1;
+
+  string token = 2;
+}
+
 service UserService {
   rpc Create(CreateRequest) returns (CreateResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
@@ -141,4 +158,5 @@ service UserService {
   rpc Me(MeRequest) returns (MeResponse);
   rpc UpdateMe(UpdateMeRequest) returns (UpdateMeResponse);
   rpc DeleteMe(DeleteMeRequest) returns (DeleteMeResponse);
+  rpc SuperLogin(SuperLoginRequest) returns (SuperLoginResponse);
 }
