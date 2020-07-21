@@ -25,6 +25,10 @@ class CreateRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string password = 3;</code>
      */
     protected $password = '';
+    /**
+     * Generated from protobuf field <code>string locale = 4;</code>
+     */
+    protected $locale = '';
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class CreateRequest extends \Google\Protobuf\Internal\Message
      *     @type string $name
      *     @type string $email
      *     @type string $password
+     *     @type string $locale
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +109,28 @@ class CreateRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->password = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string locale = 4;</code>
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * Generated from protobuf field <code>string locale = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLocale($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->locale = $var;
 
         return $this;
     }
