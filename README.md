@@ -4,6 +4,8 @@
 
 ### Instalação
 
+[Instalação das extensões e bibliotecas](https://cloud.google.com/php/grpc?hl=pt-br)
+
 Adicionar ao `composer.json`
 
 ```json
