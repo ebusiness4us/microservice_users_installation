@@ -84,5 +84,53 @@ switch ($res->getResult()) {
   default:
     echo "resultado não tratado: " . MicroserviceUsers\CreateResponse\Result::name($res->getResult()) . "\n"; 
 }
+```
 
+## NodeJS
+
+### Instalação
+
+```
+yarn add grpc ebusiness4us/microservice_users_installation
+```
+
+### Utilização
+
+```js
+let grpc = require('grpc')
+let protoLoader = require('@grpc/proto-loader')
+
+// Carregamento das definições do microservice
+let PROTO_PATH = __dirname + '/node_modules/microservice_users_installation/source/user.proto'
+let definition = protoLoader.loadSync(PROTO_PATH, {
+  keepCase: true,
+  longs: String,
+  enums: String,
+  defaults: true,
+  oneofs: true
+})
+let protoDescriptor = grpc.loadPackageDefinition(definition)
+let microserviceUsers = protoDescriptor.microserviceUsers
+
+// Endereço do servidor do microservice
+const serverAddr = 'localhost:9090'
+
+// Conectar ao servidor (a conexão pode ser reutilizada)
+let client = new microserviceUsers.UserService(serverAddr, grpc.credentials.createInsecure())
+
+// Requisição de criação de usuário
+client.create({
+  name: 'Anderson Marin',
+  email: 'anderson.marin@outlook.com',
+  password: 'abc123',
+  locale: 'us'
+}, (err, res) => {
+  // Verificar se ocorreu algum erro na requisição
+  if (err) {
+    console.error(err)
+    return
+  }
+  // Trata o resultado
+  console.debug(res)
+})
 ```
