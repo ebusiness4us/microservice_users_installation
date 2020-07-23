@@ -134,3 +134,48 @@ client.create({
   console.debug(res)
 })
 ```
+
+## Go
+
+### Instalação
+```
+go get github.com/ebusiness4us/microservice_users_installation
+go get google.golang.org/grpc
+```
+
+### Utilização
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/ebusiness4us/microservice_users_installation/build/go/pb"
+	"google.golang.org/grpc"
+)
+
+func main() {
+	conn, err := grpc.Dial("localhost:9090", grpc.WithInsecure())
+	if err != nil {
+		panic(err)
+	}
+	defer conn.Close()
+
+	client := pb.NewUserServiceClient(conn)
+
+	req := pb.CreateRequest{
+		Name:     "Anderson Marin",
+		Email:    "anderson.marin@outlook.com",
+		Password: "abc123",
+		Locale:   "us",
+	}
+	res, err := client.Create(context.Background(), &req)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(res.Result.String())
+}
+
+```
