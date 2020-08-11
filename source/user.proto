@@ -6,6 +6,17 @@ option go_package = "./pb";
 
 option php_generic_services = true;
 
+service UserService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc Verify(VerifyRequest) returns (VerifyResponse);
+  rpc Refresh(RefreshRequest) returns (RefreshResponse);
+  rpc Me(MeRequest) returns (MeResponse);
+  rpc UpdateMe(UpdateMeRequest) returns (UpdateMeResponse);
+  rpc DeleteMe(DeleteMeRequest) returns (DeleteMeResponse);
+  rpc SuperLogin(SuperLoginRequest) returns (SuperLoginResponse);
+}
+
 message CreateRequest {
   string name = 1;
   string email = 2;
@@ -149,15 +160,4 @@ message SuperLoginResponse {
   Result result = 1;
 
   string token = 2;
-}
-
-service UserService {
-  rpc Create(CreateRequest) returns (CreateResponse);
-  rpc Login(LoginRequest) returns (LoginResponse);
-  rpc Verify(VerifyRequest) returns (VerifyResponse);
-  rpc Refresh(RefreshRequest) returns (RefreshResponse);
-  rpc Me(MeRequest) returns (MeResponse);
-  rpc UpdateMe(UpdateMeRequest) returns (UpdateMeResponse);
-  rpc DeleteMe(DeleteMeRequest) returns (DeleteMeResponse);
-  rpc SuperLogin(SuperLoginRequest) returns (SuperLoginResponse);
 }
