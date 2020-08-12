@@ -30,7 +30,11 @@ class MeResponse extends \Google\Protobuf\Internal\Message
      */
     protected $email = '';
     /**
-     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 5;</code>
+     * Generated from protobuf field <code>string locale = 5;</code>
+     */
+    protected $locale = '';
+    /**
+     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 6;</code>
      */
     protected $status = 0;
 
@@ -44,6 +48,7 @@ class MeResponse extends \Google\Protobuf\Internal\Message
      *     @type string $uuid
      *     @type string $name
      *     @type string $email
+     *     @type string $locale
      *     @type int $status
      * }
      */
@@ -141,7 +146,29 @@ class MeResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 5;</code>
+     * Generated from protobuf field <code>string locale = 5;</code>
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * Generated from protobuf field <code>string locale = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLocale($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->locale = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 6;</code>
      * @return int
      */
     public function getStatus()
@@ -150,7 +177,7 @@ class MeResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 5;</code>
+     * Generated from protobuf field <code>.microserviceUsers.MeStatus status = 6;</code>
      * @param int $var
      * @return $this
      */

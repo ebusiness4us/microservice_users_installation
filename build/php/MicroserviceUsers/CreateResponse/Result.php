@@ -24,14 +24,19 @@ class Result
      */
     const INVALID_PASSWORD_REQUIREMENTS = 2;
     /**
-     * Generated from protobuf enum <code>EMAIL_ALREADY_EXISTS = 3;</code>
+     * Generated from protobuf enum <code>INVALID_LOCALE = 3;</code>
      */
-    const EMAIL_ALREADY_EXISTS = 3;
+    const INVALID_LOCALE = 3;
+    /**
+     * Generated from protobuf enum <code>EMAIL_ALREADY_EXISTS = 4;</code>
+     */
+    const EMAIL_ALREADY_EXISTS = 4;
 
     private static $valueToName = [
         self::CREATED => 'CREATED',
         self::INVALID_EMAIL => 'INVALID_EMAIL',
         self::INVALID_PASSWORD_REQUIREMENTS => 'INVALID_PASSWORD_REQUIREMENTS',
+        self::INVALID_LOCALE => 'INVALID_LOCALE',
         self::EMAIL_ALREADY_EXISTS => 'EMAIL_ALREADY_EXISTS',
     ];
 
