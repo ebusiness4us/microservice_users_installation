@@ -29,7 +29,8 @@ message CreateResponse {
     CREATED = 0;
     INVALID_EMAIL = 1;
     INVALID_PASSWORD_REQUIREMENTS = 2;
-    EMAIL_ALREADY_EXISTS = 3;
+    INVALID_LOCALE_FORMAT = 3;
+    EMAIL_ALREADY_EXISTS = 4;
   }
 
   Result result = 1;
@@ -97,7 +98,8 @@ message MeResponse {
   string uuid = 2;
   string name = 3;
   string email = 4;
-  MeStatus status = 5;
+  string locale = 5;
+  MeStatus status = 6;
 }
 
 enum MeStatus {
