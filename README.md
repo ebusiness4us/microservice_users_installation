@@ -11,18 +11,7 @@ Adicionar ao `composer.json`
 ```json
 {
   "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "ebusiness4us/microservice_users_installation",
-        "version": "1.0.0",
-        "source": {
-          "url": "https://github.com/ebusiness4us/microservice_users_installation.git",
-          "type": "git",
-          "reference": "master"
-        }
-      }
-    }
+    { "type": "git", "url": "https://github.com/ebusiness4us/microservice_users_installation.git" }
   ],
   "require": {
     "grpc/grpc": "^v1.27.0",
