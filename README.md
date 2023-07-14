@@ -14,7 +14,7 @@ Adicionar ao `composer.json`
     { "type": "git", "url": "https://github.com/ebusiness4us/microservice_users_installation.git" }
   ],
   "require": {
-    "grpc/grpc": "^v1.27.0",
+    "grpc/grpc": "v1.42.0",
     "ebusiness4us/microservice_users_installation": "^1.0"
   },
   "autoload": {
